@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 import { FAKE_STORE_API_BASE } from '../utils/testData';
 
 test.describe('FakeStore API', () => {
-    test('GET /products returns 200 and array contains at least one item with id, title, price', async ({ request }) => {
+    test('GET /products returns 200 and array contains at least one item with id, title, price @api @smoke', async ({ request }) => {
         const response = await request.get(`${FAKE_STORE_API_BASE}/products`);
         expect(response.ok()).toBeTruthy();
         expect(response.status()).toBe(200);
@@ -20,7 +20,7 @@ test.describe('FakeStore API', () => {
         expect(firstProduct).toHaveProperty('image');
     });
 
-    test('GET /carts/1 returns 200 and has products with productId and quantity', async({ request }) => {
+    test('GET /carts/1 returns 200 and has products with productId and quantity @api @smoke', async({ request }) => {
         const response = await request.get(`${FAKE_STORE_API_BASE}/carts/1`);
         expect(response.ok()).toBeTruthy();
         expect(response.status()).toBe(200);

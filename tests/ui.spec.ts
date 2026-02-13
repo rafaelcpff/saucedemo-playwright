@@ -7,7 +7,7 @@ import { credentials, checkoutUser, productNames } from '../utils/testData';
 
 
 test.describe('Login', () => {
-    test('happy path -> products page visible with inventory list', async ({ page }) => {
+    test('happy path -> products page visible with inventory list @ui @smoke', async ({ page }) => {
         const loginPage = new LoginPage(page);
         const productsPage = new ProductsPage(page);
 
@@ -28,7 +28,7 @@ test.describe('Cart', () => {
         );
     });
 
-    test('add Sauce Labs Backpack -> badge shows 1 -> cart contains item', async ({ page }) => {
+    test('add Sauce Labs Backpack -> badge shows 1 -> cart contains item @ui @smoke', async ({ page }) => {
         const productsPage = new ProductsPage(page);
         const cartPage = new CartPage(page);
 
@@ -54,7 +54,7 @@ test.describe('Checkout', () => {
         await productsPage.goToCart();
     });
 
-    test('continue with empty form -> error shown', async ({ page }) => {
+    test('continue with empty form -> error shown @ui @smoke', async ({ page }) => {
         const cartPage = new CartPage(page);
         const checkoutPage = new CheckoutPage(page);
 
@@ -63,7 +63,7 @@ test.describe('Checkout', () => {
         await expect(checkoutPage.errorMessage).toBeVisible();
     });
 
-    test('fill form and complete -> confirmation message', async ({ page }) => {
+    test('fill form and complete -> confirmation message @ui @smoke', async ({ page }) => {
         const cartPage = new CartPage(page);
         const checkoutPage = new CheckoutPage(page);
 
